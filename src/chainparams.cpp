@@ -123,12 +123,7 @@ public:
         assert(consensus.hashGenesisBlock == uint256S("0x068d420df9d5593b4eed9d6ac2de85d4262ba74f25d6f7d4128618c9be4892b2"));
         assert(genesis.hashMerkleRoot == uint256S("0x74529e258aa6d1a00608da82f772f33d83c0e505c53e759526b4b7d8b56b4827"));
 
-        // Note that of those with the service bits flag, most only support a subset of possible options
-        vSeeds.emplace_back("seed-a.litecoins.loshan.co.uk", true);
-        vSeeds.emplace_back("dnsseed.thrasher.io", true);
-        vSeeds.emplace_back("dnsseed.litecoinstools.com", true);
-        vSeeds.emplace_back("dnsseed.litecoinspool.org", true);
-        vSeeds.emplace_back("dnsseed.koin-project.com", false);
+        // Note that of those with the service bits flag, most only support a subset of possible options        
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
