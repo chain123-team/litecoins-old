@@ -1,80 +1,105 @@
-LitecoinS Core
-=============
+[![Build Status](https://travis-ci.org/litecoins-project/litecoins.svg?branch=master)](https://travis-ci.org/litecoins-project/litecoins)
 
-Setup
----------------------
-LitecoinS Core is the original LitecoinS client and it builds the backbone of the network. It downloads and, by default, stores the entire history of LitecoinS transactions (which is currently more than 7 GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
+https://litecoins.tech
 
-To download LitecoinS Core, visit [litecoins.org](https://litecoins.org).
+LiTeCoinS Core integration/staging repository
+=================================================
 
-Running
----------------------
-The following are some helpful notes on how to run LitecoinS on your native platform.
+LiTeCoinS (LTS) is a sustainable cryptocurrency modeled after Satoshi Nakamoto’s vision for Bitcoin. It is a decentralized, peer-to-peer transactional currency designed to offer a solution to the problem posed by the exponential increase in energy consumed by Bitcoin and other proof-of-work currencies. Proof-of-work mining is environmentally unsustainable due to the electricity used by high-powered mining hardware. 
+LiTeCoinS utilizes the Tier Protocol, an energy efficient proof-of-power algorithm inspired by LITECOIN, can be mined on any computer, and will never require specialized mining equipment. The Tier Protocol offers a simple solution to Bitcoin sustainability issues and provides a faster, more scalable blockchain that is better suited for daily transactional use.
+Fast transactions featuring guaranteed zero confirmation transactions, we call it SwiftTX.
+- Fast transactions featuring guaranteed zero confirmation transactions, we call it _SwiftTX_.
+- An experimental digital currency that enables instant payments to anyone, anywhere in the world. 
+- LitecoinS uses peer-to-peer technology to operate with no central authority: managing transactions and issuing money are carried out collectively by the network. 
+- LitecoinS Core is the name of open source software which enables the use of this currency.
 
-### Unix
+More information at [LiTeCoinS.Tech](https://www.litecoins.tech)
 
-Unpack the files into a directory and run:
+Please reach out at LiTeCoinS. help@litecoins.tech
 
-- `bin/litecoins-qt` (GUI) or
-- `bin/litecoinsd` (headless)
 
-### Windows
+LiTeCoinS Core integration/staging repository
+=====================================
 
-Unpack the files into a directory, and then run litecoins-qt.exe.
+LiTeCoinS is a brand new digital currency that combines all the positive aspects of successful digital currencies, while taking into account their flaws and weak points.
+The project brings tangible benefits not only to the digital world but also to the real one.
 
-### OS X
 
-Drag LitecoinS-Core to your applications folder, and then run LitecoinS-Core.
+Coin Specs
+=====================================
+<table>
+<tr><td>Name & ticker</td><td>LiTeCoinS</td></tr>
+<tr><td>Consensus algorithm</td><td>PoW</td></tr>
+<tr><td>PoW block reward</td><td>200 LTS</td></tr>
+<tr><td>Estimated LiTeCoinS supply during POW</td><td>1,000,000,000</td></tr>
+<tr><td>Premine</td><td>500,000,000 LTS</td></tr>
+<tr><td>Blocksize</td><td>1 MB</td></tr>
+<tr><td>Blocktime average</td><td>1 min (DGW3)</td></tr>
+<tr><td>Number of transaction confirmations</td><td>6</td></tr>
+<tr><td>Maturity</td><td>288 confirmations</td></tr>
+</table>
 
-### Need Help?
 
-* See the documentation at the [LitecoinS Wiki](https://litecoins.info/)
-for help and more information.
-* Ask for help on [#litecoins](http://webchat.freenode.net?channels=litecoins) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=litecoins).
-* Ask for help on the [LitecoinSTalk](https://litecoinstalk.io/) forums.
+Development Process
+=====================================
 
-Building
----------------------
-The following are developer notes on how to build LitecoinS on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The `master` branch is regularly built and tested, but is not guaranteed to be
+completely stable. [Tags](https://github.com/litecoins-project/litecoins/tags) are created
+regularly to indicate new official, stable release versions of LitecoinS Core.
 
-- [OS X Build Notes](build-osx.md)
-- [Unix Build Notes](build-unix.md)
-- [Windows Build Notes](build-windows.md)
-- [OpenBSD Build Notes](build-openbsd.md)
-- [Gitian Building Guide](gitian-building.md)
+The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Development
----------------------
-The LitecoinS repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The developer [mailing list](https://groups.google.com/forum/#!forum/litecoins-dev)
+should be used to discuss complicated or controversial changes before working
+on a patch set.
 
-- [Developer Notes](developer-notes.md)
-- [Release Notes](release-notes.md)
-- [Release Process](release-process.md)
-- [Source Code Documentation (External Link)](https://dev.visucore.com/litecoins/doxygen/)
-- [Translation Process](translation_process.md)
-- [Translation Strings Policy](translation_strings_policy.md)
-- [Travis CI](travis-ci.md)
-- [Unauthenticated REST Interface](REST-interface.md)
-- [Shared Libraries](shared-libraries.md)
-- [BIPS](bips.md)
-- [Dnsseed Policy](dnsseed-policy.md)
-- [Benchmarking](benchmarking.md)
+Developer IRC can be found on Freenode at #litecoins-dev.
 
-### Resources
-* Discuss on the [LitecoinSTalk](https://litecoinstalk.io/) forums.
-* Discuss general LitecoinS development on #litecoins-dev on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=litecoins-dev).
+Testing
+=====================================
 
-### Miscellaneous
-- [Assets Attribution](assets-attribution.md)
-- [Files](files.md)
-- [Fuzz-testing](fuzzing.md)
-- [Reduce Traffic](reduce-traffic.md)
-- [Tor Support](tor.md)
-- [Init Scripts (systemd/upstart/openrc)](init.md)
-- [ZMQ](zmq.md)
+Testing and code review is the bottleneck for development; we get more pull
+requests than we can review and test on short notice. Please be patient and help out by testing
+other people's pull requests, and remember this is a security-critical project where any mistake might cost people
+lots of money.
+
+Automated Testing
+=====================================
+
+Developers are strongly encouraged to write [unit tests](src/test/README.md) for new code, and to
+submit new unit tests for old code. Unit tests can be compiled and run
+(assuming they weren't disabled in configure) with: `make check`. Further details on running
+and extending unit tests can be found in [/src/test/README.md](/src/test/README.md).
+
+There are also [regression and integration tests](/test), written
+in Python, that are run automatically on the build server.
+These tests can be run (if the [test dependencies](/test) are installed) with: `test/functional/test_runner.py`
+
+The Travis CI system makes sure that every pull request is built for Windows, Linux, and OS X, and that unit/sanity tests are run automatically.
+
+Manual Quality Assurance (QA) Testing
+=====================================
+
+Changes should be tested by somebody other than the developer who wrote the
+code. This is especially important for large or high-risk changes. It is useful
+to add a test plan to the pull request description if testing the changes is
+not straightforward.
+
+Translations
+=====================================
+
+We only accept translation fixes that are submitted through [Bitcoin Core's Transifex page](https://www.transifex.com/projects/p/bitcoin/).
+Translations are converted to LitecoinS periodically.
+
+Translations are periodically pulled from Transifex and merged into the git repository. See the
+[translation process](doc/translation_process.md) for details on how this works.
+
+**Important**: We do not accept translation changes as GitHub pull requests because the next
+pull from Transifex would automatically overwrite them again.
+
 
 License
----------------------
-Distributed under the [MIT software license](/COPYING).
-This product includes software developed by the OpenSSL Project for use in the [OpenSSL Toolkit](https://www.openssl.org/). This product includes
-cryptographic software written by Eric Young ([eay@cryptsoft.com](mailto:eay@cryptsoft.com)), and UPnP software written by Thomas Bernard.
+=====================================
+
+LitecoinS Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+information or see https://opensource.org/licenses/MIT.
